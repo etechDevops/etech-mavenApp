@@ -15,13 +15,13 @@
 	<version>1.0</version>
 
 	<name>MavenEnterpriseApplication</name>
-	<url>http://mithuntechnologies.com</url>
+	<url>http://etecconsultingllc.com.com</url>
 	
 	<description>Maven Enterprise Project</description>
 
 	<organization>
-		<name>Landmark Technologies</name>
-		<url>http://mylandmarktech.com/</url>
+		<name>Etech Consulting</name>
+		<url>http://etecconsultingllc.com/</url>
 	</organization>
 
 	<properties>
@@ -95,13 +95,13 @@
 	<distributionManagement>
 	    <repository>
 	      <id>nexus</id>
-	      <name>Landmark Technologies Releases Nexus Repository</name>
-	      <url>http://localhost:8085/landmarktechnologies/repository/flipkart-releases/</url>
+	      <name>Etech Consulting Releases Nexus Repository</name>
+	      <url>http://localhost:8085/etechconsulting/repository/flipkart-releases/</url>
 	    </repository>
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://localhost:8085/landmarktechnologies/repository/flipkart-snapshot/</url>
+	      <name>Etech Consulting Snapshot Nexus Repository </name>
+	      <url>http://localhost:8085/etechconsulting/repository/flipkart-snapshot/</url>
 	    </snapshotRepository>
 	</distributionManagement>
 	

@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1 align="center">Welcome to Etech Consulting Devops Master Class.</h1>
-<h1 align="center">Very Good Training center for DevOps in New York and also for Job Assitance... and Job Support also...Teaching Real Time scnerios</h1>
+<h1 align="center">We are a software solutions company and DevOps online training platform in New York and Ohio  with Job Assitance... and Job Support also...Teaching 100% practical skills</h1>
 <hr>
 <div style="text-align: center;">
 	<span>

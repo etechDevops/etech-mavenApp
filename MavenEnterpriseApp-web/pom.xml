@@ -95,8 +95,8 @@
 	<distributionManagement>
 	    <repository>
 	      <id>nexus</id>
-	      <name>Etech Consulting Releases Nexus Repository</name>
-	      <url>http://localhost:8085/etechconsulting/repository/flipkart-releases/</url>
+	      <name>maven-nexus-repo</name>
+	      <url>http://ec2-54-189-92-81.us-west-2.compute.amazonaws.com:8081/repository/maven-nexus-repo/</url>
 	    </repository>
 	    <snapshotRepository>
 	      <id>nexus</id>

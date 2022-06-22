@@ -123,7 +123,7 @@
                        <groupId>sp.sd</groupId>
                        <artifactId>nexus-artifact-uploader</artifactId>
                        <version>2.13</version>
-                   </plugins>
+                   </plugin>
 		
 		</plugins>
 	</build>

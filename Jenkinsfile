@@ -24,13 +24,15 @@ pipeline {
             sh 'mvn test'
         }
     }
-    stage('codequality'){
+    stage('code quality'){
       steps{
         sh 'mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=team3-pipeline \
-  -Dsonar.host.url=http://ec2-3-15-99-52.us-east-2.compute.amazonaws.com:9000 \
-  -Dsonar.login=sqp_9126c399ecd5e0422d8b3a72809479db151c2766'
+  -Dsonar.projectKey=team3-pipeline-olu \
+  -Dsonar.host.url=http://ec2-54-146-99-49.compute-1.amazonaws.com:9000 \
+  -Dsonar.login=sqp_087fc78952f1001ea5644c41268266a296c768b3'
       }
     }
-  }
-}
+        } 
+    }
+  
+  

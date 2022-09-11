@@ -19,5 +19,18 @@ pipeline {
         sh 'mvn package'
       }
     }
+    stage('unittest'){
+        steps{
+            sh 'mvn test'
+        }
+    }
+    stage('codequality'){
+      steps{
+        sh 'mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=abisola-pipeline \
+  -Dsonar.host.url=http://3.132.171.251:9000 \
+  -Dsonar.login=sqp_142390647908236b57cf767e7c498b7dca67165e'
+      }
+    }
   }
 }

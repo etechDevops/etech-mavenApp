@@ -1,3 +1,4 @@
+
 pipeline {
   agent any
   tools {
@@ -19,18 +20,16 @@ pipeline {
         sh 'mvn package'
       }
     }
-    
-  }  stage('unittest'){
+    stage('unittest'){
         steps{
             sh 'mvn test'
         }
     }
-    
-}   stage('codequality'){
+    stage('codequality'){
       steps{
          sh 'mvn clean verify sonar:sonar \
-          -Dsonar.projectKey=felix-pipeline \
-          -Dsonar.host.url=http://ec2-18-209-46-117.compute-1.amazonaws.com:9000 \
-          -Dsonar.login=sqp_5e2c946cdf88f7cf7973fb26a749e0ba88465b30'
+  -Dsonar.projectKey=felix-pipeline \
+  -Dsonar.host.url=http://ec2-18-209-46-117.compute-1.amazonaws.com:9000 \
+  -Dsonar.login=sqp_5e2c946cdf88f7cf7973fb26a749e0ba88465b30'
       }
     }

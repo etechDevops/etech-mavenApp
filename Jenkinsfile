@@ -18,8 +18,7 @@ pipeline {
       steps{
         sh 'mvn package'
       }
-    }
-    stage('unittest'){
+
         steps{
             sh 'mvn test'
         }

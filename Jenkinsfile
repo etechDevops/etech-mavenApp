@@ -19,7 +19,7 @@ pipeline {
         sh 'mvn package'
       }
     }
-    stage('unittest'){
+      stage('unittest'){
         steps{
             sh 'mvn test'
         }
@@ -27,8 +27,12 @@ pipeline {
     stage('codequality'){
       steps{
          sh 'mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=felix-pipeline \
-  -Dsonar.host.url=http://ec2-18-209-46-117.compute-1.amazonaws.com:9000 \
-  -Dsonar.login=sqp_5e2c946cdf88f7cf7973fb26a749e0ba88465b30'
+        sh 'mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=team3-pipeline \
+  -Dsonar.host.url=http://ec2-3-15-99-52.us-east-2.compute.amazonaws.com:9000 \
+  -Dsonar.login=sqp_9126c399ecd5e0422d8b3a72809479db151c2766'
       }
     }
+  }
+}
+

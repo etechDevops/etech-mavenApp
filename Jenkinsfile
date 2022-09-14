@@ -1,4 +1,3 @@
-
 pipeline {
   agent any
   tools {
@@ -26,10 +25,12 @@ pipeline {
         }
     }
     stage('codequality'){
-      steps{
-         sh 'mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=felix-pipeline \
-  -Dsonar.host.url=http://ec2-18-209-46-117.compute-1.amazonaws.com:9000 \
-  -Dsonar.login=sqp_5e2c946cdf88f7cf7973fb26a749e0ba88465b30'
-      }
+        steps{
+       sh 'mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=maven-pipeline \
+  -Dsonar.host.url=http://ec2-107-20-71-192.compute-1.amazonaws.com:9000 \
+  -Dsonar.login=sqp_955a0cf8a68b6066dd022216aeafc84adfd42df8'
+        }
     }
+  }
+}

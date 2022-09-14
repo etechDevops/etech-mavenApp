@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
   agent any
   tools {
     maven 'maven'
@@ -19,18 +19,18 @@ pipeline {
         sh 'mvn package'
       }
     }
-      stage('unittest'){
+    stage('unittest'){
         steps{
             sh 'mvn test'
         }
     }
     stage('codequality'){
-      steps{
-        sh 'mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=team3-pipeline \
-  -Dsonar.host.url=http://ec2-3-15-99-52.us-east-2.compute.amazonaws.com:9000 \
-  -Dsonar.login=sqp_9126c399ecd5e0422d8b3a72809479db151c2766'
-      }
+        steps{
+       sh 'mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=maven-pipeline \
+  -Dsonar.host.url=http://ec2-107-20-71-192.compute-1.amazonaws.com:9000 \
+  -Dsonar.login=sqp_955a0cf8a68b6066dd022216aeafc84adfd42df8'
+        }
     }
   }
 }

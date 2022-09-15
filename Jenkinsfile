@@ -24,5 +24,13 @@ pipeline {
         sh 'mvn test'
       }
     }
+    stage('codequality'){
+      steps{
+        sh 'mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=team3-pipeline \
+  -Dsonar.host.url=http://ec2-3-16-56-47.us-east-2.compute.amazonaws.com:9000 \
+  -Dsonar.login=sqp_b7a2660c5d38cedd1b10a5f7e779ea83805d8e7a'
+      }
+    }  
   }
 }

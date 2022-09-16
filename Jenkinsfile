@@ -19,5 +19,19 @@ pipeline {
         sh 'mvn package'
       }
     }
+    stage('unittest'){
+        steps{
+            sh 'mvn test'
+        }
+    }
+    stage('codequality'){
+      steps{
+        sh 'mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=new-pipeline \
+  -Dsonar.host.url=http://ec2-44-194-10-153.compute-1.amazonaws.com:9000 \
+  -Dsonar.login=sqp_dae273a73d4295d7fabacabc0ec8806cb17ba6aa'
+      }
+    }
+
   }
 }

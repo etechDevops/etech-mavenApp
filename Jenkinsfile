@@ -19,7 +19,7 @@ pipeline {
         sh 'mvn package'
       }
     }
-      stage('unittest'){
+    stage('unittest'){
         steps{
             sh 'mvn test'
         }
@@ -28,8 +28,8 @@ pipeline {
       steps{
         sh 'mvn clean verify sonar:sonar \
   -Dsonar.projectKey=team3-pipeline \
-  -Dsonar.host.url=http://ec2-3-15-99-52.us-east-2.compute.amazonaws.com:9000 \
-  -Dsonar.login=sqp_9126c399ecd5e0422d8b3a72809479db151c2766'
+  -Dsonar.host.url=http://ec2-35-175-222-254.compute-1.amazonaws.com:9000 \
+  -Dsonar.login=sqp_f509f93a5e2fab9543f60be704fd87cb39352518'
       }
     }
   }

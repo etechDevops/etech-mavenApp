@@ -32,11 +32,5 @@ pipeline {
   -Dsonar.login=sqp_9126c399ecd5e0422d8b3a72809479db151c2766'
       }
     }
-   stage('Start microservices') {
-	   steps{
-		sh 'docker build -t appimage .'
-		sh 'docker run --name appcontainer -dp 8001:8080 appimage'
-	}
-}
   }
 }

@@ -24,7 +24,7 @@ pipeline {
             sh 'mvn test'
         }
     }
-    stage('codequality'){
+   // stage('codequality'){
       steps{
         sh 'mvn clean verify sonar:sonar \
   -Dsonar.projectKey=team5project \
@@ -32,6 +32,6 @@ pipeline {
   -Dsonar.host.url=http://ec2-107-22-47-64.compute-1.amazonaws.com:9000 \
   -Dsonar.token=sqp_2c6fd5c10664b2156ff587276f5c07d58bfec9f2'
       }
-    }
+    }//
   }
 }

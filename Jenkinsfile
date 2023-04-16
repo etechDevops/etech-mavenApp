@@ -26,7 +26,8 @@ pipeline {
     }
     stage('sonarscanner'){
       steps{
-      sh 'mvn clean verify sonar@sonar \
+      sh 'mvn clean verify'
+      sh 'mvn sonar:sonar \
   -Dsonar.projectKey=team5project \
   -Dsonar.projectName='team5project' \
   -Dsonar.host.url=http://ec2-107-22-47-64.compute-1.amazonaws.com:9000 \

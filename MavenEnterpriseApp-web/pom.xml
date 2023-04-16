@@ -129,6 +129,10 @@
                      <artifactId>nexus-artifact-uploader</artifactId>
                      <version>2.13</version>
                  </plugin>
+			<dependency>
+    <groupId>io.jenkins.plugins</groupId>
+    <artifactId>caffeine-api</artifactId>
+</dependency>
 		
 		</plugins>
 	</build>

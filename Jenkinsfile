@@ -27,9 +27,10 @@ pipeline {
     stage('codequality'){
       steps{
         sh 'mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=etech-team4 \
-  -Dsonar.host.url=http://ec2-18-219-85-148.us-east-2.compute.amazonaws.com:9000 \
-  -Dsonar.login=sqp_0aa5df9c74751758200ed82828b1b486f2be853e'
+  -Dsonar.projectKey=team5project \
+  -Dsonar.projectName='team5project' \
+  -Dsonar.host.url=http://ec2-107-22-47-64.compute-1.amazonaws.com:9000 \
+  -Dsonar.token=sqp_2c6fd5c10664b2156ff587276f5c07d58bfec9f2'
       }
     }
   }

@@ -29,7 +29,7 @@ pipeline {
       sh "mvn clean verify sonar:sonar \
   -Dsonar.projectKey=team3-pipeline \
   -Dsonar.projectName='team3-pipeline' \
-  -Dsonar.host.url=http://ec2-3-87-87-78.compute-1.amazonaws.com:9000 \
+  -Dsonar.host.url=http://ec2.54.242.186.137.compute-1.amazonaws.com:9000 \
   -Dsonar.token=sqp_72a8fca9ebed64c797cc14c17782ec639a91dfa5"
       }
     }

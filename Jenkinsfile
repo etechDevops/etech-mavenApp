@@ -6,7 +6,7 @@ pipeline {
   stages{
     stage('1-git-clone'){
       steps{
-        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'rnfor', url: 'https://github.com/etechDevops/etech-mavenApp.git']])
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'nfor', url: 'https://github.com/etechDevops/etech-mavenApp.git']])
       }
     }
     stage('2-cleanws'){
@@ -19,18 +19,14 @@ pipeline {
         sh 'mvn package'
       }
     }
-      stage('unittest'){
+      stage('4-unittest'){
         steps{
             sh 'mvn test'
         }
     }
-    stage('sonarscanner'){
+    stage('5-maven-deploy'){
       steps{
-      sh "mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=team6codereview \
-  -Dsonar.projectName='team6codereview' \
-  -Dsonar.host.url=http://ec2-35-90-225-216.us-west-2.compute.amazonaws.com:9000 \
-  -Dsonar.token=sqp_2c2538ba7976bfa58ade95dc55727e0def581cf9"
+      sh "scp -i key ${artifact} ubuntu@54.245.156.251:/opt/tomcat/apache-tomcat-9.0.78/webapps"
       }
     }
   }

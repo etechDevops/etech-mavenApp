@@ -6,7 +6,7 @@ pipeline {
   stages{
     stage('1-git-clone'){
       steps{
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-id', url: 'https://github.com/etechDevops/etech-mavenApp.git']]])
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-creds', url: 'https://github.com/etechDevops/etech-mavenApp.git']])
       }
     }
     stage('2-cleanws'){
@@ -27,10 +27,10 @@ pipeline {
     stage('sonarscanner'){
       steps{
       sh "mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=team5codereview \
-  -Dsonar.projectName='team5codereview' \
-  -Dsonar.host.url=http://ec2-107-22-47-64.compute-1.amazonaws.com:9000 \
-  -Dsonar.token=sqp_0e5ca3fb66d661c1efd895d8370236860af9bfb6"
+  -Dsonar.projectKey=team6codereview \
+  -Dsonar.projectName='team6codereview' \
+  -Dsonar.host.url=http://ec2-35-163-249-27.us-west-2.compute.amazonaws.com:9000 \
+  -Dsonar.token=sqp_234f9247e0a9fa7164dec84b0f683dfd4f4f6961"
       }
     }
   }

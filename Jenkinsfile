@@ -26,7 +26,7 @@ pipeline {
     }
     stage('5-maven-deploy'){
       steps{
-      sh "scp -i key /var/lib/jenkins/workspace/maven-build-job/MavenEnterpriseApp-web/target ubuntu@54.245.156.251:/opt/tomcat/apache-tomcat-9.0.78/webapps"
+      sh "scp -i key /workspace/maven-build-job/MavenEnterpriseApp-web/target/MavenEnterpriseApplication.war ubuntu@54.245.156.251:/opt/tomcat/apache-tomcat-9.0.78/webapps"
       }
     }
   }

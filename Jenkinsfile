@@ -6,31 +6,28 @@ pipeline {
   stages{
     stage('1-git-clone'){
       steps{
-        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'nfor', url: 'https://github.com/etechDevops/etech-mavenApp.git']])
+        clone repo
       }
     }
-    // stage('2-cleanws'){
-    //   steps{
-    //     sh 'mvn clean'
-    //   }
-    // }
+    stage('2-cleanws'){
+      steps{
+        sh 'mvn clean'
+      }
+    }
     stage('3-mavenbuild'){
       steps{
         sh 'mvn package'
       }
-    }
-      stage('4-unittest'){
-        steps{
-            sh 'mvn test'
+      post{
+        success{
+          echo "Archive the artifacts"
+          archiveArtifacts artifacts: '**/target/*.war'
         }
+      }
     }
-    stage('5-code-analysis'){
+      stage('4-Deploy to tomcat server'){
       steps{
-      sh "mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=team6-codeQuality-analysis \
-  -Dsonar.projectName='team6-codeQuality-analysis' \
-  -Dsonar.host.url=http://ec2-52-11-250-251.us-west-2.compute.amazonaws.com:9000 \
-  -Dsonar.token=sqp_e35658cb565d76fc713a851988e7d91a314dfc2b"
+        sh 'deploy adapters: [tomcat9(credentialsId: 'rudolph', path: '', url: 'http://ec2-54-184-91-175.us-west-2.compute.amazonaws.com:8080/')], contextPath: null, war: '**/*.war''
       }
     }
   }

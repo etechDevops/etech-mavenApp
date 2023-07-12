@@ -24,9 +24,13 @@ pipeline {
             sh 'mvn test'
         }
     }
-    stage('5-maven-deploy'){
+    stage('5-code-analysis'){
       steps{
-      sh "scp -i key MavenEnterpriseApplication.war ubuntu@54.245.156.251:/opt/tomcat/apache-tomcat-9.0.78/webapps"
+      sh "mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=team6-codeQuality-analysis \
+  -Dsonar.projectName='team6-codeQuality-analysis' \
+  -Dsonar.host.url=http://ec2-52-11-250-251.us-west-2.compute.amazonaws.com:9000 \
+  -Dsonar.token=sqp_e35658cb565d76fc713a851988e7d91a314dfc2b"
       }
     }
   }

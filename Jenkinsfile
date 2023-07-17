@@ -18,20 +18,29 @@ pipeline {
       steps{
         sh 'mvn package'
       }
-    }
-    stage('4-unittest'){
-        steps{
-            sh 'mvn test'
+      post{
+        success{
+          echo "Archive the artifacts"
+          archiveArtifacts artifacts: '**/target/*.war'
         }
+      }
     }
-    stage('5-code-quality'){
-        steps{
-       sh 'mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=team6-codeQuality-analysis \
-  -Dsonar.projectName='team6-codeQuality-analysis' \
-  -Dsonar.host.url=http://ec2-52-11-250-251.us-west-2.compute.amazonaws.com:9000 \
-  -Dsonar.token=sqp_e35658cb565d76fc713a851988e7d91a314dfc2b'
-        }
+      stage('4-Deploy to tomcat server'){
+      steps{
+        deploy adapters: [tomcat9(credentialsId: 'tomcat-creds', path: '', url: 'http://18.236.104.120:8080/')], contextPath: null, war: '**/*.war'
+      }
     }
   }
 }
+ 
+//     stage('5-code-analysis'){
+//       steps{
+//       sh "mvn clean verify sonar:sonar \
+//   -Dsonar.projectKey=team6-codeQuality-analysis \
+//   -Dsonar.projectName='team6-codeQuality-analysis' \
+//   -Dsonar.host.url=http://ec2-52-11-250-251.us-west-2.compute.amazonaws.com:9000 \
+//   -Dsonar.token=sqp_e35658cb565d76fc713a851988e7d91a314dfc2b"
+//       }
+//     }
+//   }
+// }

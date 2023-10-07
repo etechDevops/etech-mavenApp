@@ -26,11 +26,11 @@ pipeline {
     }
     stage('codequality'){
         steps{
-       sh 'mvn clean verify sonar:sonar \
+       sh "mvn clean verify sonar:sonar \
   -Dsonar.projectKey=team7 \
   -Dsonar.projectName='team7' \
   -Dsonar.host.url=http://34.212.154.53:9000 \
-  -Dsonar.token=sqp_031ae975c3aa98eb96e6cf85be6572316d24e58d'
+  -Dsonar.token=sqp_031ae975c3aa98eb96e6cf85be6572316d24e58d"
       }
     }
   }

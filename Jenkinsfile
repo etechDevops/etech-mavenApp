@@ -30,7 +30,7 @@ pipeline {
   -Dsonar.projectKey=team7 \
   -Dsonar.projectName='team7' \
   -Dsonar.host.url=http://34.212.154.53:9000 \
-  -Dsonar.token=sqp_51b84d6e7e0661a188ca5b8acce8959c9a8745ff'
+  -Dsonar.token=sqp_031ae975c3aa98eb96e6cf85be6572316d24e58d'
       }
     }
   }

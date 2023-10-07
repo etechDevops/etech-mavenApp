@@ -21,7 +21,7 @@ pipeline {
     }
     stage('codequality'){
         steps{
-       sh 'mvn clean verify sonar:sonar \
+         sh 'mvn clean verify sonar:sonar \
   -Dsonar.projectKey=team7 \
   -Dsonar.projectName='team7' \
   -Dsonar.host.url=http://34.212.154.53:9000 \

@@ -1,0 +1,1 @@
+checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'maven', url: 'https://github.com/Fonkeng-Felix2020/etech-mavenApp.git']])

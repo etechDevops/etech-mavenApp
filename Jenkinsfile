@@ -19,10 +19,5 @@ pipeline {
         sh 'mvn package'
       }
     }
-    stage('4-felix'){
-      steps{
-        echo 'Weldone'
-      }
-    }
   }
 }
